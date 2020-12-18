@@ -120,7 +120,8 @@ At the moment, these options are implemented:
 
 **-y**: Set display height
 
-**-z**: Set display framerate(Added #define, adding support for start arg.)
+**-z**: Set display framerate(in float)  
+(ex: 60.0, 30.0, etc...)
 
 # Disclaimer
 
