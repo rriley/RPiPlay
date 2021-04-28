@@ -14,6 +14,12 @@ set (CMAKE_CXX_STANDARD 11)
 
 set (RENDERER_FLAGS "")
 
+find_package(X11 REQUIRED)
+link_libraries(${X11_LIBRARIES})
+include_directories(${X11_INCLUDE_DIR})
+# link_directories(${X11_LIBRARIES})
+
+
 add_subdirectory(lib/playfair)
 add_subdirectory(lib/llhttp)
 add_subdirectory(lib)
@@ -23,6 +29,6 @@ add_subdirectory(renderers)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${RENDERER_FLAGS}" )
 
 add_executable( rpiplay rpiplay.cpp)
-target_link_libraries ( rpiplay renderers airplay )
+target_link_libraries ( rpiplay renderers airplay ${X11_LIBRARIES})
 
 install(TARGETS rpiplay RUNTIME DESTINATION bin)
